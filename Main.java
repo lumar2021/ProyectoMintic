@@ -3,7 +3,7 @@ class Main {
     Empresa empresa1 = new Empresa("Mc donals", "Calle 8", "3002020", "1010");
     System.out.println("Nombre empresa: "+empresa1.getNombre());
 
-    Empleado empleado1 = new Empleado("Sara", "s@mcdonals.com", "administrador", "CC", 1010101010);
+    Empleado empleado1 = new Empleado("Sara Gomez", "s@mcdonals.com.co", "administrador", "CC", 1010101010);
     empleado1.setEmpresa(empresa1);
     System.out.println("Nombre del empleado: "+empleado1.getNombre());
     System.out.println("Nombre de la empresa del empleado: "+empleado1.getEmpresa().getNombre());
