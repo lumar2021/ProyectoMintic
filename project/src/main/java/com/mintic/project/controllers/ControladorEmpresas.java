@@ -1,22 +1,24 @@
 package com.mintic.project.controllers;
 
-import com.mintic.project.models.Empresa;
 import com.mintic.project.services.ServicioEmpresa;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 public class ControladorEmpresas {
 
     @Autowired
     private ServicioEmpresa servicioEmpresa;
 
-    @CrossOrigin
-    @GetMapping("/empresas")
-    public String consultarEmpresas(){
-        return servicioEmpresa.consultarTodas();
-    }
 
+    @GetMapping("/empresas")
+    public String consultarEmpresas(Model model){
+        model.addAttribute("empresas", servicioEmpresa.consultarTodas());
+        return "empresas";
+    }
+/*
     @CrossOrigin
     @GetMapping("/empresas/{id}")
     public String consultarUnaEmpresa(@PathVariable int id){
@@ -43,4 +45,6 @@ public class ControladorEmpresas {
         servicioEmpresa.actualizar(id, empresa);
         return "Empresa actualizada";
     }
+
+ */
 }

@@ -1,6 +1,7 @@
 package com.mintic.project.services;
 
 import com.mintic.project.models.Empleado;
+import com.mintic.project.models.Empresa;
 import com.mintic.project.repositories.RepositorioEmpleado;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,9 +11,9 @@ public class ServicioEmpleado {
     @Autowired
     private RepositorioEmpleado repositorioEmpleado;
 
-    public String consultarTodas()
+    public Iterable<Empleado> consultarTodas()
     {
-        return repositorioEmpleado.findAll().toString();
+        return repositorioEmpleado.findAll();
     }
 
     public String consultarUna(int id)

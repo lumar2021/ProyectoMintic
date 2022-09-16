@@ -10,8 +10,8 @@ public class ServicioEmpresa {
     @Autowired
     private RepositorioEmpresa repositorioEmpresa;
 
-    public String consultarTodas(){
-        return repositorioEmpresa.findAll().toString();
+    public Iterable<Empresa> consultarTodas(){
+        return repositorioEmpresa.findAll();
     }
 
     public String consultarUna(int id){
