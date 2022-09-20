@@ -43,6 +43,35 @@
     <br><br><br><br>
     <h2>Empleados</h2>
     <br><br>
+    <b>Formulario para crear empleado:</b>
+    <br><br>
+    <form action="#" th:action="@{/empleados}" method="post" th:object="${empleado}">
+
+        <label>Nombre:</label>
+        <input type="text" class="form-control" th:field="*{nombre}" /><br/>
+
+        <label>Correo:</label>
+        <input type="text" class="form-control"  th:field="*{correo}" /><br/>
+
+        <label>Rol:</label>
+        <input type="text" class="form-control" th:field="*{rol}" /><br/>
+
+        <label>Tipo Documento:</label>
+        <input type="text" class="form-control" th:field="*{tipoDocumento}" /><br/>
+
+        <label>Numero documento:</label>
+        <input type="number" class="form-control" th:field="*{numeroDocumento}" /><br/>
+
+        <label>Id empresa:</label>
+        <input type="number" class="form-control" th:field="*{empresa.id}" /><br/>
+
+        <button type="submit" class="btn btn-primary">Crear Empleado</button>
+    </form>
+
+
+    <br><br>
+
+
     A continuación listamos los empleados de las diferentes empresas
     <br><br>
 

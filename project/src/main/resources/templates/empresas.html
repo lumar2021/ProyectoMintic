@@ -43,6 +43,28 @@
     <br><br><br><br>
     <h2>Empresas</h2>
     <br><br>
+    <b>Formulario para crear empresa:</b>
+    <br><br>
+    <form action="#" th:action="@{/empresas}" method="post" th:object="${empresa}">
+
+        <label>Nombre:</label>
+        <input type="text" class="form-control" th:field="*{nombre}" /><br/>
+
+        <label>Direccion:</label>
+        <input type="text" class="form-control"  th:field="*{direccion}" /><br/>
+
+        <label>Telefono:</label>
+        <input type="text" class="form-control" th:field="*{telefono}" /><br/>
+
+        <label>Nit:</label>
+        <input type="text" class="form-control" th:field="*{nit}" /><br/>
+
+
+        <button type="submit" class="btn btn-primary">Crear Empresa</button>
+    </form>
+
+
+    <br><br>
     A continuación listamos nuestras empresas
     <br><br>
 
