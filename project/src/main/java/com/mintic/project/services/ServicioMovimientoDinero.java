@@ -1,5 +1,6 @@
 package com.mintic.project.services;
 
+import com.mintic.project.models.Empleado;
 import com.mintic.project.models.Empresa;
 import com.mintic.project.models.MovimientoDinero;
 import com.mintic.project.repositories.RepositorioMovimientoDinero;
@@ -11,6 +12,10 @@ public class ServicioMovimientoDinero {
     @Autowired
     private RepositorioMovimientoDinero repositorioMovimientoDinero;
 
+    public Iterable<MovimientoDinero> consultarTodas()
+    {
+        return repositorioMovimientoDinero.findAll();
+    }
     public String consultarTodosPorIdEmpresa(int id){
         return repositorioMovimientoDinero.findByEmpresa_Id(id).toString();
     }
@@ -22,10 +27,7 @@ public class ServicioMovimientoDinero {
         repositorioMovimientoDinero.deleteById(id);
     }
 
-    public void crear(int id, MovimientoDinero movimiento){
-        Empresa e1 = new Empresa();
-        e1.setId(id);
-        movimiento.setEmpresa(e1);
+    public void crear(MovimientoDinero movimiento){
         repositorioMovimientoDinero.save(movimiento);
     }
 
