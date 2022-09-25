@@ -20,7 +20,21 @@ public class ControladorMovimientoDinero {
     public String consultarMovimientos(Model model){
         MovimientoDinero movimiento= new MovimientoDinero();
         model.addAttribute("movimiento", movimiento);
-        model.addAttribute("movimientos", servicioMovimientoDinero.consultarTodas());
+        Iterable<MovimientoDinero> movs = servicioMovimientoDinero.consultarTodas();
+        double total = 0;
+
+        for(MovimientoDinero mov : movs)
+        {
+            if(mov.getTipo().equals("egreso")) {
+                total = total - mov.getMonto();
+            }
+            else {
+                total = total + mov.getMonto();
+            }
+
+        }
+        model.addAttribute("total", total);
+        model.addAttribute("movimientos", movs);
         return "movimientos";
     }
 
